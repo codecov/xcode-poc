@@ -14,6 +14,11 @@
 		3920616E2405DAAB00701CE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3920616D2405DAAB00701CE3 /* Preview Assets.xcassets */; };
 		392061712405DAAB00701CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3920616F2405DAAB00701CE3 /* LaunchScreen.storyboard */; };
 		3920617C2405DAAB00701CE3 /* xcode_pocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920617B2405DAAB00701CE3 /* xcode_pocTests.swift */; };
+		392061872405DB9F00701CE3 /* SwiftText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392061862405DB9F00701CE3 /* SwiftText.swift */; };
+		3920618A2405DD8100701CE3 /* ObjCText.m in Sources */ = {isa = PBXBuildFile; fileRef = 392061892405DD8100701CE3 /* ObjCText.m */; };
+		392061952407009700701CE3 /* ObjCPlusPlusText.mm in Sources */ = {isa = PBXBuildFile; fileRef = 392061942407009700701CE3 /* ObjCPlusPlusText.mm */; };
+		392061972408176700701CE3 /* CPlusPlusText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 392061962408176700701CE3 /* CPlusPlusText.cpp */; };
+		393E2D432408623D002A9F7F /* IgnoredSwiftText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393E2D422408623D002A9F7F /* IgnoredSwiftText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,14 @@
 		392061772405DAAB00701CE3 /* xcode-pocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xcode-pocTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3920617B2405DAAB00701CE3 /* xcode_pocTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xcode_pocTests.swift; sourceTree = "<group>"; };
 		3920617D2405DAAB00701CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		392061862405DB9F00701CE3 /* SwiftText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftText.swift; sourceTree = "<group>"; };
+		392061882405DD8100701CE3 /* xcode-poc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcode-poc-Bridging-Header.h"; sourceTree = "<group>"; };
+		392061892405DD8100701CE3 /* ObjCText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCText.m; sourceTree = "<group>"; };
+		392061942407009700701CE3 /* ObjCPlusPlusText.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCPlusPlusText.mm; sourceTree = "<group>"; };
+		392061962408176700701CE3 /* CPlusPlusText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPlusPlusText.cpp; sourceTree = "<group>"; };
+		392061982408177400701CE3 /* CPlusPlusText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPlusPlusText.h; sourceTree = "<group>"; };
+		392061992408190E00701CE3 /* ObjCPlusPlusText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCPlusPlusText.h; sourceTree = "<group>"; };
+		393E2D422408623D002A9F7F /* IgnoredSwiftText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IgnoredSwiftText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +93,20 @@
 			isa = PBXGroup;
 			children = (
 				392061642405DAA800701CE3 /* AppDelegate.swift */,
+				392061942407009700701CE3 /* ObjCPlusPlusText.mm */,
+				392061992408190E00701CE3 /* ObjCPlusPlusText.h */,
 				392061662405DAA800701CE3 /* SceneDelegate.swift */,
 				392061682405DAA800701CE3 /* ContentView.swift */,
+				392061892405DD8100701CE3 /* ObjCText.m */,
+				392061862405DB9F00701CE3 /* SwiftText.swift */,
+				393E2D422408623D002A9F7F /* IgnoredSwiftText.swift */,
+				392061962408176700701CE3 /* CPlusPlusText.cpp */,
+				392061982408177400701CE3 /* CPlusPlusText.h */,
 				3920616A2405DAAB00701CE3 /* Assets.xcassets */,
 				3920616F2405DAAB00701CE3 /* LaunchScreen.storyboard */,
 				392061722405DAAB00701CE3 /* Info.plist */,
 				3920616C2405DAAB00701CE3 /* Preview Content */,
+				392061882405DD8100701CE3 /* xcode-poc-Bridging-Header.h */,
 			);
 			path = "xcode-poc";
 			sourceTree = "<group>";
@@ -157,6 +178,7 @@
 				TargetAttributes = {
 					392061602405DAA800701CE3 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					392061762405DAAB00701CE3 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -208,8 +230,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392061952407009700701CE3 /* ObjCPlusPlusText.mm in Sources */,
+				392061872405DB9F00701CE3 /* SwiftText.swift in Sources */,
 				392061652405DAA800701CE3 /* AppDelegate.swift in Sources */,
+				393E2D432408623D002A9F7F /* IgnoredSwiftText.swift in Sources */,
+				392061972408176700701CE3 /* CPlusPlusText.cpp in Sources */,
 				392061672405DAA800701CE3 /* SceneDelegate.swift in Sources */,
+				3920618A2405DD8100701CE3 /* ObjCText.m in Sources */,
 				392061692405DAA800701CE3 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,9 +389,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"xcode-poc/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = "xcode-poc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -372,6 +401,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codecov.xcode-poc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xcode-poc/xcode-poc-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -381,9 +412,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"xcode-poc/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = "xcode-poc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,6 +424,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codecov.xcode-poc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xcode-poc/xcode-poc-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,16 +1,10 @@
-//
-//  ContentView.swift
-//  xcode-poc
-//
-//  Created by Edward Izzo on 2/25/20.
-//  Copyright © 2020 Codecov. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        let template = "%@\n%@\n%@"
+        let AllText = Text(String(format: template, ObjCPlusPlusText.sayHello(), ObjCText.sayHello(), SwiftText.sayHello()))
+        return AllText
     }
 }
 

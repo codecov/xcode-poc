@@ -20,8 +20,9 @@ class xcode_pocTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(SwiftText.sayHello(), "Hello from Swift :)")
+        XCTAssertEqual(ObjCText.sayHello(), "Hello from Objective-C :)")
+        XCTAssertEqual(ObjCPlusPlusText.sayHello(), "Hello from C++ :)")
     }
 
     func testPerformanceExample() {

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  xcode-poc
-//
-//  Created by Edward Izzo on 2/25/20.
-//  Copyright © 2020 Codecov. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

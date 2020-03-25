@@ -1,0 +1,23 @@
+{
+  "name": "xcode-poc",
+  "version": "1.0.0",
+  "description": "Demo of Swift/Obj-C/Obj-C++ coverage converted to Codecov proprietary .json format.",
+  "main": "generate-codecov-json.js",
+  "dependencies": {
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'id=ED11E199-6476-4764-A42E-739300CDE07C' -enableCodeCoverage YES clean test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edward-codecov/xcode-poc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edward-codecov/xcode-poc/issues"
+  },
+  "homepage": "https://github.com/edward-codecov/xcode-poc#readme"
+}

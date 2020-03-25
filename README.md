@@ -31,6 +31,8 @@ $ node generate-codecov-json.js --archive-path ./Build/Logs/Test/RESULT_FILE.xcr
 
 ### Upload coverage to Codecov
 
+From project root:
+
 ```
-$ bash <(curl -s https://codecov.io/bash) -t token -f coverage-report.json
+$ bash <(curl -s https://codecov.io/bash) -t token -f ./coverage-report.json
 ```

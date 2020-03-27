@@ -11,4 +11,8 @@ class SwiftText {
     static func sayGoobye() -> String {
         return "Goodbye from Swift :("
     }
+
+    static func sayIgnored() -> String {
+        return "I am an ignored function :'("
+    }
 }

@@ -18,9 +18,9 @@ jobs:
           command: |
             XCRESULT=`find ./Build/Logs/Test -name "*.xcresult"`
             echo Converting $XCRESULT to Codecov .json format
-            ./bin/generate-codecov-json-macos --archive-path $XCRESULT
+            ./bin/generate-codecov-json-macos --archive-path $XCRESULT --prefix /Users/distiller/project/xcode-poc/
             cat coverage-report-*
-      # - run:
+      # - run:d
       #     name: Upload coverage to Codecov
       #     command:
       - store_artifacts:

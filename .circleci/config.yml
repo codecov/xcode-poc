@@ -13,6 +13,16 @@ jobs:
       - run:
           name: Build
           command: xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
+      - run:
+          name: Convert coverage report
+          command: |
+            XCRESULT=`find ./Build/Logs/Test -name "*.xcresult"`
+            echo Converting $XCRESULT to Codecov .json format
+            ./bin/generate-codecov-json-macos ----archive-path XCRESULT
+            cat coverage-report-*
+      # - run:
+      #     name: Upload coverage to Codecov
+      #     command:
       - store_artifacts:
           path: output
       - store_test_results:

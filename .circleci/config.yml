@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'id=09CE93EF-52C4-49AA-8C7F-B10B8CC016E0' -enableCodeCoverage YES clean test
+          command: xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
       - store_artifacts:
           path: output
       - store_test_results:

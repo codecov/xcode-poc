@@ -20,9 +20,12 @@ jobs:
             echo Converting $XCRESULT to Codecov .json format
             ./bin/generate-codecov-json-macos --archive-path $XCRESULT --prefix /Users/distiller/project/
             cat coverage-report-*
-      # - run:d
-      #     name: Upload coverage to Codecov
-      #     command:
+      - run:
+          name: Upload coverage to Codecov
+          command: |
+          COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
+          echo Uploading coverage report: $COVERAGE_REPORT
+          bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT
       - store_artifacts:
           path: output
       - store_test_results:

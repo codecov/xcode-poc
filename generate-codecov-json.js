@@ -26,7 +26,7 @@ getFileList(archivePath).forEach(file => {
   report.coverage[repoFilePath] = coverageJson
 })
 
-const tmp = archivePath.split('/').join('').split('.')[0]
+const tmp = archivePath.split('/').pop().split('.xcresult')[0]
 
 fs.writeFileSync(`./coverage-report-${tmp}.json`, JSON.stringify(report))
 

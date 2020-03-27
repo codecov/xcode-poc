@@ -23,9 +23,9 @@ jobs:
       - run:
           name: Upload coverage to Codecov
           command: |
-          COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
-          echo Uploading coverage report: $COVERAGE_REPORT
-          bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT
+            COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
+            echo Uploading coverage report: $COVERAGE_REPORT
+            bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT
       - store_artifacts:
           path: output
       - store_test_results:

@@ -5,6 +5,7 @@ jobs:
       xcode: "11.4.0"
     working_directory: /Users/distiller/project
     environment:
+      TERM: xterm-256color
       # FL_OUTPUT_DIR: output
       # FASTLANE_LANE: test
     shell: /bin/bash --login -o pipefail

@@ -18,7 +18,7 @@ jobs:
             declare -a changed_projects=()
             for suffix in "${project_suffixes[@]}"
             do
-              git diff --name-only HEAD HEAD~1 -- project-$suffix || changed_projects+=($suffix)
+              git diff --quiet --name-only HEAD HEAD~1 -- project-$suffix || changed_projects+=($suffix)
             done
 
             if [[ ${#changed_projects[@]} > 0 ]]

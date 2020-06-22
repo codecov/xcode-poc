@@ -1,4 +1,5 @@
-node_modules/
-Build/
-*.txt
 coverage-report.json
+
+Build/
+node_modules/
+xcuserdata/

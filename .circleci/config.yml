@@ -26,7 +26,7 @@ jobs:
               for suffix in "${changed_projects[@]}"
               do
                 # build and test
-                xcodebuild -project ./project-$suffix/xcode-poc-$suffix.xcodeproj -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
+                xcodebuild -project ./project-$suffix/xcode-poc-$suffix.xcodeproj -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath ./project-$suffix/Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
 
                 # convert xcresult to codecov json
                 XCRESULT=`find ./project-$suffix/Build/Logs/Test -name "*.xcresult"`

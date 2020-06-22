@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Identify changed project(s)
+          name: Identify changed project(s), build, test, convert coverage report(s), and upload to Codecov
           command: |
             declare -a project_suffixes=('one','two')
             declare -a changed_projects=()
@@ -20,9 +20,7 @@ jobs:
             do
               git diff --name-only HEAD HEAD~1 -- project-$suffix || changed_projects+=($suffix)
             done
-      - run:
-          name: Build, test, convert coverage report(s), and upload to Codecov
-          command: |
+
             if [[ ${#changed_projects[@]} > 0 ]]
             then
               for suffix in "${changed_projects[@]}"

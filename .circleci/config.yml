@@ -14,39 +14,40 @@ jobs:
       - run:
           name: Identify changed project(s)
           command: |
-            project_suffixes=('one', 'two')
-            changed_projects=()
+            declare -a project_suffixes=('one','two')
+            declare -a changed_projects=()
             for suffix in "${project_suffixes[@]}"
             do
               git diff --name-only HEAD HEAD~1 -- project-$suffix || changed_projects+=($suffix)
             done
       - run:
-          name: Build and test
+          name: Build, test, convert coverage report(s), and upload to Codecov
           command: |
-            for suffix in "${changed_projects[@]}"
-            do
-              xcodebuild -project ./project-$suffix/xcode-poc-$suffix.xcodeproj -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
-            done
-      - run:
-          name: Convert coverage report(s) and upload to Codecov
-          command: |
-            for suffix in "${changed_projects[@]}"
-            do
-              # convert xcresult to codecov json
-              XCRESULT=`find ./project-$suffix/Build/Logs/Test -name "*.xcresult"`
-              echo Converting $XCRESULT to Codecov .json format
-              ./bin/generate-codecov-json-macos --archive-path $XCRESULT --prefix /Users/distiller/project/
+            if [[ ${#changed_projects[@]} > 0 ]]
+            then
+              for suffix in "${changed_projects[@]}"
+              do
+                # build and test
+                xcodebuild -project ./project-$suffix/xcode-poc-$suffix.xcodeproj -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
 
-              # upload coverage to codecov
-              COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
-              echo Uploading coverage report: $COVERAGE_REPORT
-              bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT -F project-$suffix
-              rm $COVERAGE_REPORT
-            done  
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
+                # convert xcresult to codecov json
+                XCRESULT=`find ./project-$suffix/Build/Logs/Test -name "*.xcresult"`
+                echo Converting $XCRESULT to Codecov .json format
+                ./bin/generate-codecov-json-macos --archive-path $XCRESULT --prefix /Users/distiller/project/
+
+                # upload coverage to codecov
+                COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
+                echo Uploading coverage report: $COVERAGE_REPORT
+                bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT -F project-$suffix
+                rm $COVERAGE_REPORT
+              done
+            else
+              echo "Nothing changed in project folders; skipping"
+            fi
+      # - store_artifacts:
+      #     path: output
+      # - store_test_results:
+      #     path: output/scan
 
   # adhoc:
   #   macos:

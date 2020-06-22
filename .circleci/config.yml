@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Identify changed project(s), build, test, convert coverage report(s), and upload to Codecov
           command: |
-            declare -a project_suffixes=('one','two')
+            declare -a project_suffixes=('one' 'two')
             declare -a changed_projects=()
             for suffix in "${project_suffixes[@]}"
             do

@@ -36,7 +36,7 @@ jobs:
                 # upload coverage to codecov
                 COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
                 echo Uploading coverage report: $COVERAGE_REPORT
-                bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT -F project-$suffix
+                bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT -F project_$suffix
                 rm $COVERAGE_REPORT
               done
             else

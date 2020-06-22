@@ -1,9 +1,9 @@
 flags:
-  project-one:
+  project_one:
     paths:
       - project-one/
     carryforward: true
-  project-two:
+  project_two:
     paths:
       - project-two/
     carryforward: true

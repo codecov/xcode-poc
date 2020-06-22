@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'id=ED11E199-6476-4764-A42E-739300CDE07C' -enableCodeCoverage YES clean test"
+    "test": "xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'name=iPhone 8' -enableCodeCoverage YES clean test"
   },
   "repository": {
     "type": "git",

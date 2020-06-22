@@ -5,7 +5,7 @@ example: node generate-codecov-json.js --archive-path SOME_PATH/SOME.xcresult
 
 note:
 you'll need to build and test w/ coverage. example:
-> xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'id=09CE93EF-52C4-49AA-8C7F-B10B8CC016E0' -enableCodeCoverage YES clean test
+> xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination 'name=iPhone 8' -enableCodeCoverage YES clean test
 */
 
 const fs = require('fs')

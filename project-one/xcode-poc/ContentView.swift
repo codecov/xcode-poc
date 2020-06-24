@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         let template = "%@\n%@\n%@\n%@"
-        let AllText = Text(String(format: template, "Project One", ObjCPlusPlusText.sayHello(), ObjCText.sayHello(), SwiftText.sayHello()))
+        let AllText = Text(String(format: template, "Project One*", ObjCPlusPlusText.sayHello(), ObjCText.sayHello(), SwiftText.sayHello()))
         return AllText
     }
 }

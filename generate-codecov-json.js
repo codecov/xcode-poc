@@ -10,7 +10,7 @@ you'll need to build and test w/ coverage. example:
 
 const fs = require('fs')
 const { argv } = require('yargs')
-const { execSync } = require('child_process')
+const { execFileSync } = require('child_process')
 
 const { log } = console
 
@@ -34,12 +34,12 @@ log('done.')
 
 function getFileList (archivePath) {
   const fileListCmd = 'xcrun xccov view --file-list --archive'
-  const fileListStr = execSync(`${fileListCmd} ${archivePath}`, { stdio: [process.stdout] }).toString()
+  const fileListStr = execFileSync(`${fileListCmd} ${archivePath}`, { stdio: [process.stdout] }).toString()
   return fileListStr.split('\n').filter(i => i !== '')
 }
 
 function getCoverageInfo (filePath) {
-  return execSync(`xcrun xccov view --archive ${archivePath} --file ${filePath}`, { stdio: [process.stdout] }).toString()
+  return execFileSync(`xcrun xccov view --archive ${archivePath} --file ${filePath}`, { stdio: [process.stdout] }).toString()
 }
 
 function convertCoverage (coverageInfo) {

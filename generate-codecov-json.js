@@ -39,7 +39,8 @@ function getFileList (archivePath) {
 }
 
 function getCoverageInfo (filePath) {
-  return execSync(`xcrun xccov view --archive ${archivePath} --file ${filePath}`, { stdio: [process.stdout] }).toString()
+  const safeFilePath = filePath.toString().replace(' ', '\\ ');
+  return execSync(`xcrun xccov view --archive ${archivePath} --file ${safeFilePath}`, { stdio: [process.stdout] }).toString()
 }
 
 function convertCoverage (coverageInfo) {

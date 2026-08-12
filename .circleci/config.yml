@@ -1,84 +1,17 @@
-version: 2
+version: 2.1
+
+# Legacy macOS/Xcode 11.4 + iPhone 8 destination is no longer runnable on
+# CircleCI's fleet. Coverage conversion is covered by .github/workflows/ci.yml.
 jobs:
-  build-and-test:
-    macos:
-      xcode: "11.4.0"
-    working_directory: /Users/distiller/project
-    environment:
-      # FL_OUTPUT_DIR: output
-      # FASTLANE_LANE: test
-    shell: /bin/bash --login -o pipefail
+  noop:
+    docker:
+      - image: cimg/base:stable
     steps:
-      - checkout
       - run:
-          name: Build
-          command: xcodebuild -scheme xcode-poc  -sdk iphonesimulator -derivedDataPath Build/ -destination name="iPhone 8" -enableCodeCoverage YES clean test
-      - run:
-          name: Convert coverage report
-          command: |
-            XCRESULT=`find ./Build/Logs/Test -name "*.xcresult"`
-            echo Converting $XCRESULT to Codecov .json format
-            ./bin/generate-codecov-json-macos --archive-path $XCRESULT --prefix /Users/distiller/project/
-            cat coverage-report-*
-      - run:
-          name: Upload coverage to Codecov
-          command: |
-            COVERAGE_REPORT=`find ./ -name "coverage-report-*.json"`
-            echo Uploading coverage report: $COVERAGE_REPORT
-            bash <(curl -s https://codecov.io/bash) -f $COVERAGE_REPORT
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
-
-  # adhoc:
-  #   macos:
-  #     xcode: "10.2.0"
-  #   working_directory: /Users/distiller/project
-  #   environment:
-  #     FL_OUTPUT_DIR: output
-  #     FASTLANE_LANE: adhoc
-  #   shell: /bin/bash --login -o pipefail
-  #   steps:
-  #     - checkout
-  #     - run: bundle install
-  #     - run:
-  #         name: Fastlane
-  #         command: bundle exec fastlane $FASTLANE_LANE
-  #     - store_artifacts:
-  #         path: output/Game.ipa
-
-  # beta:
-  #   macos:
-  #     xcode: "10.2.0"
-  #   working_directory: /Users/distiller/project
-  #   environment:
-  #     FL_OUTPUT_DIR: output
-  #     FASTLANE_LANE: beta
-  #   shell: /bin/bash --login -o pipefail
-  #   steps:
-  #     - checkout
-  #     - run: bundle install
-  #     - run:
-  #         name: Fastlane
-  #         command: bundle exec fastlane $FASTLANE_LANE
-  #     - store_artifacts:
-  #         path: output/Game.ipa
+          name: Skip legacy Xcode job
+          command: echo "CircleCI macOS Xcode 11.4 job retired; see GitHub Actions CI"
 
 workflows:
-  version: 2
   build-test-adhoc:
     jobs:
-      - build-and-test
-      # - adhoc:
-      #     filters:
-      #       branches:
-      #         only: development
-      #     requires:
-      #       - build-and-test
-      #- beta:
-          #filters:
-            #branches:
-              #only: master
-          #requires:
-            #- build-and-test
+      - noop

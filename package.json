@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/edward-codecov/xcode-poc/issues"
   },
-  "homepage": "https://github.com/edward-codecov/xcode-poc#readme"
+  "homepage": "https://github.com/edward-codecov/xcode-poc#readme",
+  "overrides": {
+    "ansi-regex": "5.0.1",
+    "y18n": "4.0.1"
+  }
 }
